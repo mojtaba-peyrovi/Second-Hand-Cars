@@ -14,14 +14,23 @@ class CarsController extends Controller
      */
     public function index()
     {
-        $cars = Car::where('price','>',1000000)
-        ->Where('price','<',8000000)
-        ->paginate(4);
+        $cars = Car::paginate(4);
         return view('front.cars.index',compact('cars'));
 
     }
 
+    public function searchResults(Request $request)
+    {
 
+        // $cars = Car::where('year','=',$request->input('year'))
+        // ->orWhere('model','=',$request->input('model'))
+        // ->orWhere('make','=',$request->input('make'))->paginate(6);
+
+        $cars = Car::filterByRequest($request)->paginate(6);
+
+        return view('front.cars.results',compact('cars'));
+
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -51,7 +60,7 @@ class CarsController extends Controller
      */
     public function show(Car $car)
     {
-        //
+        return view('front.cars.show',compact('car'));
     }
 
     /**

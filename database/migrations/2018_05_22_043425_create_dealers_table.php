@@ -21,6 +21,11 @@ class CreateDealersTable extends Migration
             $table->decimal('lat', 10, 7);
             $table->string('location');
             $table->string('phone');
+            $table->string('website');
+            $table->string('address');
+            $table->string('email');
+            $table->string('contact_person');
+            $table->string('jobTitle');
             $table->timestamps();
         });
     }

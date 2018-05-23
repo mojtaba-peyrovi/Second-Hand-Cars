@@ -19,16 +19,18 @@
           </thead>
           <tbody>
               @foreach ($dealers as $dealer)
-                  <tr>
-                    <td scope="row">{{ $dealer->id }}</td>
-                    <td>{{ $dealer->name }}</td>
-                    <td>{{ $dealer->city }}</td>
-                    <td>{{ $dealer->location }}</td>
-                    <td>{{ $dealer->phone }}</td>
-                    <td>
-                        <a href="/dealers/{{ $dealer->id }}" class="btn btn-outline-primary">More About This Company</a>
-                    </td>
-                  </tr>
+
+                      <tr>
+                        <td scope="row">{{ $dealer->id }}</td>
+                        <td>{{ $dealer->name }}</td>
+                        <td>{{ $dealer->city }}</td>
+                        <td>{{ $dealer->location }}</td>
+                        <td>{{ $dealer->phone }}</td>
+                        <td>
+                            <a href="/dealers/{{ $dealer->id }}" class="btn btn-outline-primary">More About This Company</a>
+                        </td>
+                      </tr>
+                
               @endforeach
           </tbody>
         </table>

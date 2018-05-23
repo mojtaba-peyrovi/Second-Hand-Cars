@@ -13,7 +13,7 @@ class DealersTableSeeder extends Seeder
     {
         $faker = \Faker\Factory::create();
         $faker->addProvider(new CompanyNameGenerator\FakerProvider($faker));
-        foreach (range(1,150) as $index) {
+        foreach (range(1,50) as $index) {
             DB::table('dealers')->insert([
                 'name' => $faker->companyName,
                 'city' => $faker->city,
@@ -21,6 +21,11 @@ class DealersTableSeeder extends Seeder
                 'lat' => $faker->latitude($min = -90, $max = 90),
                 'location' => $faker->stateAbbr,
                 'phone' =>$faker->tollFreePhoneNumber,
+                'website' =>$faker->domainName,
+                'address' => $faker->streetAddress,
+                'email' =>$faker->email,
+                'contact_person' =>$faker->name,
+                'job_title' =>$faker->jobTitle,
                 'created_at' => $faker->dateTimeBetween($startDate = '-4 years', $endDate = '-3 years'),
                 'updated_at' => $faker->dateTimeBetween($startDate = '-4 years', $endDate = 'now')
             ]);

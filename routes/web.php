@@ -18,4 +18,5 @@ Route::resource('/cars','carsController');
 Route::resource('/dealers','DealersController');
 
 //search cars
-Route::get('search', 'carsController@table')->name('search');
+Route::get('search', 'carsController@searchResults')->name('search');
+Route::get('/map','mapController@index');

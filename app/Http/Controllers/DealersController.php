@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Mapper;
 use App\Dealer;
 use Illuminate\Http\Request;
 
@@ -15,6 +15,8 @@ class DealersController extends Controller
     public function index()
     {
         $dealers = Dealer::paginate(10);
+
+
         return view('front.dealer.index',compact('dealers'));
 
     }
@@ -48,6 +50,9 @@ class DealersController extends Controller
      */
     public function show(Dealer $dealer)
     {
+        $lat = $dealer->lat;
+        $long = $dealer->long;
+        Mapper::map($lat, $long);
         return view('front.dealer.show',compact('dealer'));
     }
 
@@ -84,4 +89,6 @@ class DealersController extends Controller
     {
         //
     }
+
+
 }
